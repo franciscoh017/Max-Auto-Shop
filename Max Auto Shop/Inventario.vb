@@ -1,10 +1,14 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
+
 Public Class frmInventario
+    Dim errorProvider1 As New ErrorProvider
     Private con As SqlConnection
     Private selectedId As Integer
 
+
     Private Sub frmInventario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
         'Open the connection.
         con.Open()
         Using sda As SqlDataAdapter = New SqlDataAdapter("SELECT *, CONCAT(CONCAT(descripcion, ' - ' ), precio) detalle FROM dbo.vehiculos", con)
@@ -90,32 +94,43 @@ Public Class frmInventario
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
-        Dim cmd As New SqlCommand
-        Dim reader As SqlDataReader
+        If Not Regex.IsMatch(txtPrecio.Text, "^\d+(\.\d+)+$") Then
+            errorProvider1.SetError(txtPrecio,
+                                    "Digite un precio valido")
+        ElseIf Not Regex.IsMatch(txtCantidad.Text, "^[0-9]\d*$") Then
+            errorProvider1.SetError(txtCantidad,
+                                    "Digite una cantidad valida")
+        Else
+            errorProvider1.SetError(txtPrecio, String.Empty)
+            errorProvider1.SetError(txtCantidad, String.Empty)
+            errorProvider1.Clear()
+            con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+            Dim cmd As New SqlCommand
+            Dim reader As SqlDataReader
 
-        Try
+            Try
 
-            cmd.CommandText = "INSERT INTO dbo.vehiculos (idMarca, idModelo, Color, Tablilla, Licencia, Precio, Descripcion, Stock) VALUES" &
-                "( '" & cmbMarca.SelectedValue.ToString() & "', '" & cmbModelo.SelectedValue.ToString() & "', '" & txtColor.Text & "', '" & txtTablilla.Text & "', '" & txtLicencia.Text & "', '" & txtPrecio.Text & "', '" & txtDescripcion.Text & "-" & txtLicencia.Text & "', '" & txtCantidad.Text & "' )"
-            cmd.Connection = con
-            'Open the connection.
-            con.Open()
-            reader = cmd.ExecuteReader()
+                cmd.CommandText = "INSERT INTO dbo.vehiculos (idMarca, idModelo, Color, Tablilla, Licencia, Precio, Descripcion, Stock) VALUES" &
+            "( '" & cmbMarca.SelectedValue.ToString() & "', '" & cmbModelo.SelectedValue.ToString() & "', '" & txtColor.Text & "', '" & txtTablilla.Text & "', '" & txtLicencia.Text & "', '" & txtPrecio.Text & "', '" & txtDescripcion.Text & "-" & txtLicencia.Text & "', '" & txtCantidad.Text & "' )"
+                cmd.Connection = con
+                'Open the connection.
+                con.Open()
+                reader = cmd.ExecuteReader()
 
-            reader.Close()
-            frmInventario_Load(e, e)
-            limpiar()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            con.Close()
-        End Try
+                reader.Close()
+                frmInventario_Load(e, e)
+                limpiar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                con.Close()
+            End Try
+        End If
     End Sub
 
     Private Sub cmbMarca_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMarca.SelectedIndexChanged
         If (TypeOf sender.SelectedValue IsNot DataRowView) Then
-            con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+            con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
             'Open the connection.
             con.Open()
             If Integer.Parse(sender.SelectedValue) > 0 Then
@@ -144,38 +159,47 @@ Public Class frmInventario
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
-        Dim cmd As New SqlCommand
-        Dim reader As SqlDataReader
 
-        Try
+        Dim result As DialogResult = MessageBox.Show("¿Desea actualizar el vehículo seleccionado?",
+                              "Confirmar Actualizar Vehiculo",
+                              MessageBoxButtons.YesNo)
 
-            cmd.CommandText = "UPDATE dbo.vehiculos set idMarca = '" & cmbMarca.SelectedValue.ToString() & "'," &
-                                                       "idModelo = '" & cmbModelo.SelectedValue.ToString() & "'," &
-                                                       "color = '" & txtColor.Text & "'," &
-                                                       "tablilla = '" & txtTablilla.Text & "'," &
-                                                       "licencia = '" & txtLicencia.Text & "'," &
-                                                       "precio = '" & txtPrecio.Text & "'," &
-                                                       "descripcion = '" & txtDescripcion.Text & "'," &
-                                                       "stock = '" & txtCantidad.Text & "'" &
-                                                       "where id = '" & selectedId & "'"
-            cmd.Connection = con
-            'Open the connection.
-            con.Open()
-            reader = cmd.ExecuteReader()
+        If result <> DialogResult.Yes Then
+            Return
+        Else
+            con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+            Dim cmd As New SqlCommand
+            Dim reader As SqlDataReader
 
-            reader.Close()
-            frmInventario_Load(e, e)
-            limpiar()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            con.Close()
-        End Try
+            Try
+
+                cmd.CommandText = "UPDATE dbo.vehiculos set idMarca = '" & cmbMarca.SelectedValue.ToString() & "'," &
+                                                           "idModelo = '" & cmbModelo.SelectedValue.ToString() & "'," &
+                                                           "color = '" & txtColor.Text & "'," &
+                                                           "tablilla = '" & txtTablilla.Text & "'," &
+                                                           "licencia = '" & txtLicencia.Text & "'," &
+                                                           "precio = '" & txtPrecio.Text & "'," &
+                                                           "descripcion = '" & txtDescripcion.Text & "'," &
+                                                           "stock = '" & txtCantidad.Text & "'" &
+                                                           "where id = '" & selectedId & "'"
+                cmd.Connection = con
+                'Open the connection.
+                con.Open()
+                reader = cmd.ExecuteReader()
+
+                reader.Close()
+                frmInventario_Load(e, e)
+                limpiar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                con.Close()
+            End Try
+        End If
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
         Dim cmd As New SqlCommand
         Dim reader As SqlDataReader
 

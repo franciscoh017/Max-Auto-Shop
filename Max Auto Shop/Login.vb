@@ -4,7 +4,7 @@ Public Class frmLogin
     Private con As SqlConnection
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
         Dim cmd As New SqlCommand
         Dim reader As SqlDataReader
         Dim user As String = ""
@@ -24,6 +24,8 @@ Public Class frmLogin
             If user IsNot "" Then
                 lblMessage.Visible = False
                 Me.Hide()
+                txtUsername.Clear()
+                txtPassword.Clear()
                 frmMain.Show()
             Else
                 lblMessage.Visible = True
@@ -36,6 +38,10 @@ Public Class frmLogin
         Finally
             con.Close()
         End Try
+
+    End Sub
+
+    Private Sub lblUser_Click(sender As Object, e As EventArgs) Handles lblUser.Click
 
     End Sub
 End Class

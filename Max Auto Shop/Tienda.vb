@@ -5,7 +5,7 @@ Public Class frmTienda
     Private con As SqlConnection
 
     Private Sub frmTienda_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
         'Open the connection.
         con.Open()
         Using sda As SqlDataAdapter = New SqlDataAdapter("SELECT id, descripcion FROM Marcas", con)
@@ -70,7 +70,7 @@ Public Class frmTienda
 
     Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbMarca.SelectedValueChanged
         If (TypeOf sender.SelectedValue IsNot DataRowView) Then
-            con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+            con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
             'Open the connection.
             con.Open()
             If Integer.Parse(sender.SelectedValue) > 0 Then
@@ -99,7 +99,7 @@ Public Class frmTienda
     End Sub
 
     Private Sub btnFiltrar_Click(sender As Object, e As EventArgs) Handles btnFiltrar.Click
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
         'Open the connection.
         con.Open()
         Using sda As SqlDataAdapter = New SqlDataAdapter("SELECT id, descripcion FROM Vehiculos Where idMarca =" & cmbMarca.SelectedValue.ToString() & " and IdModelo =" & cmbModelo.SelectedValue.ToString(), con)
@@ -124,7 +124,7 @@ Public Class frmTienda
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
         'Open the connection.
         con.Open()
         Using sda As SqlDataAdapter = New SqlDataAdapter("SELECT *, CONCAT(CONCAT(descripcion, ' - ' ), precio) detalle FROM dbo.vehiculos", con)
@@ -201,7 +201,7 @@ Public Class frmTienda
     End Sub
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
-        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\franc\Documents\Visual Studio 2017\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
+        con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Francisco Hernandez\Documents\Visual Studio 2019\Projects\Max Auto Shop\Max Auto Shop\MaxAutoShop.mdf;Integrated Security=True;")
         Dim cmd As New SqlCommand
         Dim reader As SqlDataReader
         Dim noFactura As Integer
