@@ -255,4 +255,8 @@ Public Class frmTienda
         frmInventario.Show()
         Me.Close()
     End Sub
+
+    Private Sub cmbMarca_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMarca.SelectedIndexChanged
+
+    End Sub
 End Class

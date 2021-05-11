@@ -11,4 +11,16 @@
     Private Sub InventaioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventaioToolStripMenuItem.Click
         frmInventario.Show()
     End Sub
+
+    Private Sub CantVentasDelDiaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CantVentasDelDiaToolStripMenuItem.Click
+        RptCantVentasDelDia.Show()
+    End Sub
+
+    Private Sub FacturasPorMarcaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FacturasPorMarcaToolStripMenuItem.Click
+        RptFacturasPorMarca.Show()
+    End Sub
+
+    Private Sub VentasDiariasPorMarcaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasDiariasPorMarcaToolStripMenuItem.Click
+        RptVentasDiarias.Show()
+    End Sub
 End Class

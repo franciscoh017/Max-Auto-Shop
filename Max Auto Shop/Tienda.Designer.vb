@@ -87,7 +87,7 @@ Partial Class frmTienda
         'txtNombre
         '
         Me.txtNombre.Location = New System.Drawing.Point(11, 53)
-        Me.txtNombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(128, 20)
         Me.txtNombre.TabIndex = 2
@@ -105,7 +105,7 @@ Partial Class frmTienda
         'txtLicencia
         '
         Me.txtLicencia.Location = New System.Drawing.Point(11, 99)
-        Me.txtLicencia.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtLicencia.Margin = New System.Windows.Forms.Padding(2)
         Me.txtLicencia.Name = "txtLicencia"
         Me.txtLicencia.Size = New System.Drawing.Size(128, 20)
         Me.txtLicencia.TabIndex = 4
@@ -133,7 +133,7 @@ Partial Class frmTienda
         'txtTelefono
         '
         Me.txtTelefono.Location = New System.Drawing.Point(11, 145)
-        Me.txtTelefono.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtTelefono.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(128, 20)
         Me.txtTelefono.TabIndex = 7
@@ -147,9 +147,9 @@ Partial Class frmTienda
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtLicencia)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 25)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(154, 192)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
@@ -166,9 +166,9 @@ Partial Class frmTienda
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.cmbMarca)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 222)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(648, 205)
         Me.GroupBox2.TabIndex = 9
         Me.GroupBox2.TabStop = False
@@ -178,7 +178,7 @@ Partial Class frmTienda
         'btnClear
         '
         Me.btnClear.Location = New System.Drawing.Point(11, 162)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(127, 28)
         Me.btnClear.TabIndex = 7
@@ -188,7 +188,7 @@ Partial Class frmTienda
         'btnAgregar
         '
         Me.btnAgregar.Location = New System.Drawing.Point(541, 17)
-        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(92, 26)
         Me.btnAgregar.TabIndex = 6
@@ -199,7 +199,7 @@ Partial Class frmTienda
         '
         Me.btnFiltrar.Enabled = False
         Me.btnFiltrar.Location = New System.Drawing.Point(11, 127)
-        Me.btnFiltrar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnFiltrar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(127, 28)
         Me.btnFiltrar.TabIndex = 5
@@ -210,7 +210,7 @@ Partial Class frmTienda
         '
         Me.lstVehiculos.FormattingEnabled = True
         Me.lstVehiculos.Location = New System.Drawing.Point(167, 17)
-        Me.lstVehiculos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.lstVehiculos.Margin = New System.Windows.Forms.Padding(2)
         Me.lstVehiculos.Name = "lstVehiculos"
         Me.lstVehiculos.Size = New System.Drawing.Size(359, 173)
         Me.lstVehiculos.TabIndex = 4
@@ -220,7 +220,7 @@ Partial Class frmTienda
         Me.cmbModelo.Enabled = False
         Me.cmbModelo.FormattingEnabled = True
         Me.cmbModelo.Location = New System.Drawing.Point(11, 100)
-        Me.cmbModelo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbModelo.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbModelo.Name = "cmbModelo"
         Me.cmbModelo.Size = New System.Drawing.Size(128, 21)
         Me.cmbModelo.TabIndex = 3
@@ -249,7 +249,7 @@ Partial Class frmTienda
         '
         Me.cmbMarca.FormattingEnabled = True
         Me.cmbMarca.Location = New System.Drawing.Point(11, 52)
-        Me.cmbMarca.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbMarca.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbMarca.Name = "cmbMarca"
         Me.cmbMarca.Size = New System.Drawing.Size(128, 21)
         Me.cmbMarca.TabIndex = 0
@@ -261,9 +261,9 @@ Partial Class frmTienda
         Me.GroupBox3.Controls.Add(Me.btnEliminar)
         Me.GroupBox3.Controls.Add(Me.lstDetalle)
         Me.GroupBox3.Location = New System.Drawing.Point(168, 25)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Size = New System.Drawing.Size(489, 192)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
@@ -273,7 +273,7 @@ Partial Class frmTienda
         '
         Me.txtTotal.Enabled = False
         Me.txtTotal.Location = New System.Drawing.Point(379, 89)
-        Me.txtTotal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtTotal.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(93, 20)
         Me.txtTotal.TabIndex = 3
@@ -293,7 +293,7 @@ Partial Class frmTienda
         '
         Me.btnEliminar.Enabled = False
         Me.btnEliminar.Location = New System.Drawing.Point(379, 18)
-        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(92, 28)
         Me.btnEliminar.TabIndex = 1
@@ -304,7 +304,7 @@ Partial Class frmTienda
         '
         Me.lstDetalle.FormattingEnabled = True
         Me.lstDetalle.Location = New System.Drawing.Point(8, 18)
-        Me.lstDetalle.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.lstDetalle.Margin = New System.Windows.Forms.Padding(2)
         Me.lstDetalle.Name = "lstDetalle"
         Me.lstDetalle.Size = New System.Drawing.Size(359, 160)
         Me.lstDetalle.TabIndex = 0
@@ -313,7 +313,7 @@ Partial Class frmTienda
         '
         Me.btnGenerar.Enabled = False
         Me.btnGenerar.Location = New System.Drawing.Point(442, 431)
-        Me.btnGenerar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnGenerar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(95, 33)
         Me.btnGenerar.TabIndex = 11
@@ -323,7 +323,7 @@ Partial Class frmTienda
         'btnLimpiar
         '
         Me.btnLimpiar.Location = New System.Drawing.Point(550, 431)
-        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(100, 33)
         Me.btnLimpiar.TabIndex = 12
@@ -341,7 +341,7 @@ Partial Class frmTienda
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmTienda"
         Me.Text = "Tienda"
         Me.MenuStrip1.ResumeLayout(False)
